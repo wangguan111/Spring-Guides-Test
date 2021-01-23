@@ -1,0 +1,17 @@
+#
+version: '3'
+services:
+  web:
+    build: .
+    image: ${MYAPP_NAME}
+    ports:
+      - ${MYAPP_PORT}:${MYAPP_PORT}
+    container_name: ${MYAPP_NAME}
+#    depends_on:
+#      - redis
+#  redis:
+#    image: ${REDIS_NAME}
+#    command: ${REDIS_COMMAND}
+#    ports:
+#      - ${REDIS_PORT}:${REDIS_PORT}
+#    container_name: ${REDIS_NAME}
