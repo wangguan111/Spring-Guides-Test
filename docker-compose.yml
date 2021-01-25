@@ -15,3 +15,9 @@ services:
 #    ports:
 #      - ${REDIS_PORT}:${REDIS_PORT}
 #    container_name: ${REDIS_NAME}
+#  rabbitmq:
+#    image: ${RABBITMQ_NAME}
+#    ports:
+#      - ${RABBITMQ_AMQP_PORT}:${RABBITMQ_AMQP_PORT}
+#      - ${RABBITMQ_ADMIN_PORT}:${RABBITMQ_ADMIN_PORT}
+#    container_name: ${RABBITMQ_NAME}
