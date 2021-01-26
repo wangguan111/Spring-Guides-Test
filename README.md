@@ -15,3 +15,7 @@ http://localhost:8085/dataAccess/count
 http://localhost:8085/
 # redis
 http://localhost:8085/redis
+# rabbitmq
+http://localhost:8085/rabbitmq
+# neo4j
+http://localhost:8085/neo4j
