@@ -15,6 +15,6 @@ echo ---start docker---
 # docker stop $(docker ps -aq)
 # docker rm $(docker ps -aq)
 # docker rmi $(docker images -q)
-# docker build -t $build_folder/$build_name .
-# ocker run -d -p $deploy_port:$deploy_port --name $build_name $build_folder/$build_name
+# docker build -t $build_name .
+# ocker run -d -p $deploy_port:$deploy_port --name $build_name $build_name
 docker-compose up -d
