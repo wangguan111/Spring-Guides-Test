@@ -8,8 +8,8 @@ echo %build_version%
 echo %deploy_port%
 echo %build_name%
 
-echo ---copy to dest---
-copy target\%build_version%.jar %build_version%.jar
+:: echo ---copy to dest---
+:: copy target\%build_version%.jar %build_version%.jar
 
 echo ---start docker---
 :: docker stop $(docker ps -aq)

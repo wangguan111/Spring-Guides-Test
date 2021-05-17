@@ -1,15 +1,15 @@
 echo off
 
 echo ---env setting---
-build_version=test-0.0.1-SNAPSHOT
+build_version=test
 deploy_port=8085
 build_name=myapp
 echo $build_version
 echo $deploy_port
 echo $build_name
 
-echo ---copy to dest---
-cp target/test-0.0.1-SNAPSHOT.jar test-0.0.1-SNAPSHOT.jar
+# echo ---copy to dest---
+# cp target/$build_version.jar $build_version.jar
 
 echo ---start docker---
 # docker stop $(docker ps -aq)

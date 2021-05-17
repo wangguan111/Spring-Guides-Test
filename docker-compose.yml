@@ -7,6 +7,8 @@ services:
     ports:
       - ${MYAPP_PORT}:${MYAPP_PORT}
     container_name: ${MYAPP_NAME}
+    volumes:
+    - ./target/${MYAPP_JAR}.jar:/tmp/${MYAPP_JAR}.jar
 #    depends_on:
 #      - redis
 #  redis:
