@@ -16,15 +16,15 @@ import org.springframework.mock.web.MockMultipartFile;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class FileSystemStorageServiceTests {
+public class FileSystemStorageServiceImplTests {
 
 	private StorageProperties properties = new StorageProperties();
-	private FileSystemStorageService service;
+	private FileSystemStorageServiceImpl service;
 
 	@BeforeEach
 	public void init() {
 		properties.setLocation("target/files/" + Math.abs(new Random().nextLong()));
-		service = new FileSystemStorageService(properties);
+		service = new FileSystemStorageServiceImpl(properties);
 		service.deleteAll();
 		service.init();
 	}

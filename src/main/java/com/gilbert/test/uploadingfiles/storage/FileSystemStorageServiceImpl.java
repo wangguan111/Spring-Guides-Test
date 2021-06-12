@@ -19,14 +19,14 @@ import org.springframework.util.FileSystemUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 @Service
-public class FileSystemStorageService implements StorageService {
+public class FileSystemStorageServiceImpl implements StorageService {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(FileSystemStorageService.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(FileSystemStorageServiceImpl.class);
 
 	private final Path rootLocation;
 
 	@Autowired
-	public FileSystemStorageService(StorageProperties properties) {
+	public FileSystemStorageServiceImpl(StorageProperties properties) {
 		this.rootLocation = Paths.get(properties.getLocation());
 	}
 

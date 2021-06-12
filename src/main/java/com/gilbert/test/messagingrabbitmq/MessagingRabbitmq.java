@@ -13,37 +13,37 @@ import org.springframework.stereotype.Component;
 @Component
 public class MessagingRabbitmq {
 
-	static final String topicExchangeName = "spring-boot-exchange";
-	static final String queueName = "spring-boot";
-	static final String routingKey = "foo.bar.#";
-	static final String defaultMethod = "receiveMessage";
+	static final String TOPIC_EXCHANGE_NAME = "spring-boot-exchange";
+	static final String QUEUE_NAME = "spring-boot";
+	static final String ROUTING_KEY = "foo.bar.#";
+	static final String DEFAULT_METHOD = "receiveMessage";
 
 	@Bean
 	Queue queue() {
-		return new Queue(queueName, false);
+		return new Queue(QUEUE_NAME, false);
 	}
 
 	@Bean
 	TopicExchange exchange() {
-		return new TopicExchange(topicExchangeName);
+		return new TopicExchange(TOPIC_EXCHANGE_NAME);
 	}
 
 	@Bean
 	Binding binding(Queue queue, TopicExchange exchange) {
-		return BindingBuilder.bind(queue).to(exchange).with(routingKey);
+		return BindingBuilder.bind(queue).to(exchange).with(ROUTING_KEY);
 	}
 
 	//@Bean
 	SimpleMessageListenerContainer container(ConnectionFactory connectionFactory, MessageListenerAdapter listenerAdapter) {
 		SimpleMessageListenerContainer container = new SimpleMessageListenerContainer();
 		container.setConnectionFactory(connectionFactory);
-		container.setQueueNames(queueName);
+		container.setQueueNames(QUEUE_NAME);
 		container.setMessageListener(listenerAdapter);
 		return container;
 	}
 
 	//@Bean
 	MessageListenerAdapter listenerAdapter(MessageListener messageListener) {
-		return new MessageListenerAdapter(messageListener, defaultMethod);
+		return new MessageListenerAdapter(messageListener, DEFAULT_METHOD);
 	}
 }

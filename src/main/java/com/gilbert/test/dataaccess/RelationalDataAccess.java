@@ -20,6 +20,7 @@ public class RelationalDataAccess implements CommandLineRunner {
 	JdbcTemplate jdbcTemplate;
 
 	@Override
+	@Deprecated
 	public void run(String... strings) throws Exception {
 
 		log.info("Creating tables");

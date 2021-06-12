@@ -1,10 +1,7 @@
 
 package com.gilbert.test.accessingdataneo4j;
 
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import org.springframework.data.neo4j.core.schema.Id;
@@ -42,6 +39,7 @@ public class Person {
 		teammates.add(person);
 	}
 
+	@Override
 	public String toString() {
 
 		return this.name + "'s teammates => "
@@ -57,5 +55,24 @@ public class Person {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+		Person person = (Person) o;
+		return Objects.equals(id, person.id) && Objects.equals(name, person.name) && Objects.equals(teammates, person.teammates);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id, name, teammates);
 	}
 }
