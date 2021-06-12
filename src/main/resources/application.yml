@@ -2,6 +2,10 @@ server:
   port: 8085
 logging:
   config: classpath:logback.xml
+management:
+  server:
+    port: 9001
+    address: 127.0.0.1
 spring:
   data:
     neo4j:
