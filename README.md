@@ -20,4 +20,4 @@ http://localhost:8085/rabbitmq
 # neo4j
 http://localhost:8085/neo4j
 # actuator
-http://localhost:9901/actuator/health
+http://localhost:9001/actuator/health

@@ -17,5 +17,4 @@ echo ---start docker---
 # docker rmi $(docker images -q)
 # docker build -t $build_name .
 # ocker run -d -p $deploy_port:$deploy_port --name $build_name $build_name
-docker-compose --veriosn
 docker-compose up
