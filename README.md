@@ -21,3 +21,5 @@ http://localhost:8085/rabbitmq
 http://localhost:8085/neo4j
 # actuator
 http://localhost:9001/actuator/health
+# jms
+http://localhost:8085/jms
