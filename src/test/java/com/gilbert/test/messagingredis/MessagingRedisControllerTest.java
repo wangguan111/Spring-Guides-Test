@@ -4,9 +4,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
 import org.junit.jupiter.api.Test;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -22,9 +20,9 @@ class MessagingRedisControllerTest {
 	@Test
 	public void Message() throws Exception {
 
-//		this.mockMvc.perform(get("/redis")).andDo(print()).
-//				andExpect(status().isOk())
-//				.andExpect(jsonPath("$").value("Hello from Redis!"));
+		this.mockMvc.perform(get("/redis")).andDo(print()).
+				andExpect(status().isOk())
+				.andExpect(jsonPath("$").value("Hello from Redis!"));
 	}
 
 }

@@ -13,3 +13,5 @@ spring:
       username: neo4j
   neo4j:
     uri: bolt://localhost:7687
+consuming:
+  url: https://quoters.apps.pcfone.io/api/random

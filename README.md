@@ -1,4 +1,7 @@
-# test url
+# deploy:
+docker-compose up
+
+# test url:
 # greeting
 http://localhost:8085/greeting
 # consuming

@@ -2,18 +2,21 @@ package com.gilbert.test.messagingredis;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
+/**
+ * @author gilbertwang
+ */
 @Component
+@Slf4j
 public class Receiver {
-    private static final Logger LOGGER = LoggerFactory.getLogger(Receiver.class);
 
     private AtomicInteger counter = new AtomicInteger();
 
     public void receiveMessage(String message) {
-        LOGGER.info("Received <" + message + ">");
+        log.info("Received <" + message + ">");
         counter.incrementAndGet();
     }
 

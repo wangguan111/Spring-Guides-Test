@@ -1,4 +1,4 @@
-package com.gilbert.test.messagingjms;
+package com.gilbert.test.accessingdataneo4j;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,16 +12,15 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @AutoConfigureMockMvc
 @SpringBootTest
-class MessagingJmsControllerTest {
+class AccessingDataNeo4jControllerTest {
 
 	@Autowired
 	private MockMvc mockMvc;
 
 	@Test
 	public void JmsController() throws Exception {
-		this.mockMvc.perform(get("/jms")).andDo(print()).
+		this.mockMvc.perform(get("/neo4j")).andDo(print()).
 				andExpect(status().isOk())
-				.andExpect(jsonPath("$.to").value("jms@126.com"))
-				.andExpect(jsonPath("$.body").value("Hello"));
+				.andExpect(jsonPath("$.name").value("Greg"));
 	}
 }

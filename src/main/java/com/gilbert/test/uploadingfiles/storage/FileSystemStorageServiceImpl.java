@@ -8,9 +8,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.stream.Stream;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
@@ -18,10 +16,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.FileSystemUtils;
 import org.springframework.web.multipart.MultipartFile;
 
+/**
+ * @author gilbertwang
+ */
 @Service
+@Slf4j
 public class FileSystemStorageServiceImpl implements StorageService {
-
-	private static final Logger LOGGER = LoggerFactory.getLogger(FileSystemStorageServiceImpl.class);
 
 	private final Path rootLocation;
 
@@ -35,8 +35,8 @@ public class FileSystemStorageServiceImpl implements StorageService {
 		try {
 			if (file.isEmpty()) {
 				String msg = "Failed to store empty file.";
-				LOGGER.error(msg);
-				throw new StorageFileNotFoundException("Failed to store empty file.");
+				log.error(msg);
+				throw new StorageFileNotFoundException(msg);
 			}
 			Path destinationFile = this.rootLocation.resolve(
 					Paths.get(file.getOriginalFilename()))
@@ -44,7 +44,7 @@ public class FileSystemStorageServiceImpl implements StorageService {
 			if (!destinationFile.getParent().equals(this.rootLocation.toAbsolutePath())) {
 				// This is a security check
 				String msg = "Cannot store file outside current directory.";
-				LOGGER.error(msg);
+				log.error(msg);
 				throw new StorageFileNotFoundException(msg);
 			}
 			try (InputStream inputStream = file.getInputStream()) {
@@ -54,7 +54,7 @@ public class FileSystemStorageServiceImpl implements StorageService {
 		}
 		catch (IOException e) {
 			String msg = "Failed to store file.";
-			LOGGER.error(msg);
+			log.error(msg);
 			throw new StorageFileNotFoundException(msg);
 		}
 	}
@@ -68,7 +68,7 @@ public class FileSystemStorageServiceImpl implements StorageService {
 		}
 		catch (IOException e) {
 			String msg = "Failed to read stored files.";
-			LOGGER.error(msg);
+			log.error(msg);
 			throw new StorageFileNotFoundException(msg);
 		}
 
@@ -89,14 +89,14 @@ public class FileSystemStorageServiceImpl implements StorageService {
 			}
 			else {
 				String msg = "Could not read file: " + filename;
-				LOGGER.error(msg);
+				log.error(msg);
 				throw new StorageFileNotFoundException(msg);
 
 			}
 		}
 		catch (MalformedURLException e) {
 			String msg = "Could not read file: " + filename;
-			LOGGER.error(msg);
+			log.error(msg);
 			throw new StorageFileNotFoundException(msg);
 		}
 	}
@@ -113,7 +113,7 @@ public class FileSystemStorageServiceImpl implements StorageService {
 		}
 		catch (IOException e) {
 			String msg = "Could not initialize storage";
-			LOGGER.error(msg);
+			log.error(msg);
 			throw new StorageFileNotFoundException(msg);
 		}
 	}

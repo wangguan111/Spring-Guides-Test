@@ -4,9 +4,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
 import org.junit.jupiter.api.Test;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -20,7 +18,7 @@ class DataAccessControllerTest {
 	private MockMvc mockMvc;
 
 	@Test
-	public void testForString() throws Exception {
+	public void testQueryForObjectNoParameter() throws Exception {
 
 		this.mockMvc.perform(get("/dataAccess/string")).andDo(print()).
 				andExpect(status().isOk())
@@ -28,7 +26,7 @@ class DataAccessControllerTest {
 	}
 
 	@Test
-	public void testForString1() throws Exception {
+	public void testQueryForObjectParameter() throws Exception {
 
 		this.mockMvc.perform(get("/dataAccess/string1")).andDo(print()).
 				andExpect(status().isOk())

@@ -1,4 +1,4 @@
-package com.gilbert.test.consuming;
+package com.gilbert.test.messagingrabbitmq;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
@@ -12,16 +12,17 @@ import org.springframework.test.web.servlet.MockMvc;
 
 @SpringBootTest
 @AutoConfigureMockMvc
-class ConsumingControllerTest {
+class MessagingRabbitmqControllerTest {
 
 	@Autowired
 	private MockMvc mockMvc;
 
 	@Test
-	public void restController() throws Exception {
+	public void Message() throws Exception {
 
-		this.mockMvc.perform(get("/consuming")).andDo(print()).
+		this.mockMvc.perform(get("/rabbitmq")).andDo(print()).
 				andExpect(status().isOk())
-				.andExpect(jsonPath("$.type").value("success"));
+				.andExpect(jsonPath("$").value("Hello from RabbitMQ!"));
 	}
+
 }

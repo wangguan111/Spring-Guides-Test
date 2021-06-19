@@ -2,10 +2,12 @@ package com.gilbert.test.uploadingfiles.storage;
 
 import org.springframework.core.io.Resource;
 import org.springframework.web.multipart.MultipartFile;
-
 import java.nio.file.Path;
 import java.util.stream.Stream;
 
+/**
+ * @author gilbertwang
+ */
 public interface StorageService {
 
 	void init();

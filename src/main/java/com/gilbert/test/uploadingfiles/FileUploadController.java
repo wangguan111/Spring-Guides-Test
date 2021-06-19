@@ -2,10 +2,8 @@ package com.gilbert.test.uploadingfiles;
 
 import java.io.IOException;
 import java.util.stream.Collectors;
-
 import com.gilbert.test.uploadingfiles.storage.StorageFileNotFoundException;
 import com.gilbert.test.uploadingfiles.storage.StorageService;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
@@ -22,7 +20,9 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBuilder;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-
+/**
+ * @author gilbertwang
+ */
 @Controller
 public class FileUploadController {
 

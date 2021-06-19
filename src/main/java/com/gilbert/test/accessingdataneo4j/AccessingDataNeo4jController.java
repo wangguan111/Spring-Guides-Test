@@ -1,26 +1,25 @@
-
 package com.gilbert.test.accessingdataneo4j;
 
 import java.util.Arrays;
 import java.util.List;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * @author gilbertwang
+ */
 @RestController
+@Slf4j
 public class AccessingDataNeo4jController {
-
-	private final static Logger log = LoggerFactory.getLogger(AccessingDataNeo4jController.class);
 
 	@Autowired
 	PersonRepository personRepository;
 
 	@GetMapping("/neo4j")
-	public void neo4j() {
+	public Person neo4j() {
+
 		personRepository.deleteAll();
 
 		Person greg = new Person("Greg");
@@ -50,8 +49,9 @@ public class AccessingDataNeo4jController {
 		team.stream().forEach(person -> log.info(
 				"\t" + personRepository.findByName(person.getName()).toString()));
 
-		List<Person> teammates = personRepository.findByTeammatesName(greg.getName());
+		List<Person> teammates = personRepository.findByTeammatesName(roy.getName());
 		log.info("The following have Greg as a teammate...");
 		teammates.stream().forEach(person -> log.info("\t" + person.getName()));
+		return teammates.get(0);
 	}
 }

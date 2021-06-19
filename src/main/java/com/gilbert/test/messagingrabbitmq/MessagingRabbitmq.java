@@ -10,6 +10,9 @@ import org.springframework.amqp.rabbit.listener.adapter.MessageListenerAdapter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
+/**
+ * @author gilbertwang
+ */
 @Component
 public class MessagingRabbitmq {
 
@@ -33,8 +36,9 @@ public class MessagingRabbitmq {
 		return BindingBuilder.bind(queue).to(exchange).with(ROUTING_KEY);
 	}
 
-	//@Bean
-	SimpleMessageListenerContainer container(ConnectionFactory connectionFactory, MessageListenerAdapter listenerAdapter) {
+	@Bean("rabbitmqContainer")
+	SimpleMessageListenerContainer container(ConnectionFactory connectionFactory,
+											 MessageListenerAdapter listenerAdapter) {
 		SimpleMessageListenerContainer container = new SimpleMessageListenerContainer();
 		container.setConnectionFactory(connectionFactory);
 		container.setQueueNames(QUEUE_NAME);
@@ -42,7 +46,7 @@ public class MessagingRabbitmq {
 		return container;
 	}
 
-	//@Bean
+	@Bean("rabbitmqListenerAdapter")
 	MessageListenerAdapter listenerAdapter(MessageListener messageListener) {
 		return new MessageListenerAdapter(messageListener, DEFAULT_METHOD);
 	}

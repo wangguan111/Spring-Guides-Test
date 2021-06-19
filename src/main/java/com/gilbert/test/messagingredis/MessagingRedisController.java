@@ -7,6 +7,9 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * @author gilbertwang
+ */
 @RestController
 public class MessagingRedisController {
 
@@ -23,7 +26,7 @@ public class MessagingRedisController {
 
         if (receiver.getCount() == 0) {
             LOGGER.info("Sending message...");
-//            template.convertAndSend("chat", "Hello from Redis!");
+            template.convertAndSend("chat", "Hello from Redis!");
         }
         return "Hello from Redis!";
     }
