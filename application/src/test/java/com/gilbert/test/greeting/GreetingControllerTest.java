@@ -1,5 +1,6 @@
 package com.gilbert.test.greeting;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
@@ -59,6 +60,7 @@ class GreetingControllerTest {
 		ResponseEntity<Map> entity = this.testRestTemplate.getForEntity(
 				"http://localhost:" + this.port + "/greeting", Map.class);
 		then(entity.getStatusCode()).isEqualTo(HttpStatus.OK);
+		assertThat(entity.getBody().get("content").equals("Hello, World!")).isEqualTo(true);
 	}
 
 	@Test
