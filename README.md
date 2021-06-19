@@ -10,9 +10,13 @@ http://localhost:8085/consuming
 http://localhost:8085/scheduledTasks
 # dataAccess
 http://localhost:8085/dataAccess/string
+
 http://localhost:8085/dataAccess/string1
+
 http://localhost:8085/dataAccess/object
+
 http://localhost:8085/dataAccess/list
+
 http://localhost:8085/dataAccess/count
 # uploadingFiles
 http://localhost:8085/
@@ -26,3 +30,5 @@ http://localhost:8085/neo4j
 http://localhost:9001/actuator/health
 # jms
 http://localhost:8085/jms
+# multimodule
+http://localhost:8085/multi

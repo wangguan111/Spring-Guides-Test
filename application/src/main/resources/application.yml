@@ -1,0 +1,21 @@
+server:
+  port: 8085
+logging:
+  config: classpath:logback.xml
+management:
+  server:
+    port: 9001
+    address: 127.0.0.1
+spring:
+  data:
+    neo4j:
+      password: secret
+      username: neo4j
+  neo4j:
+    uri: bolt://localhost:7687
+consuming:
+  url: https://quoters.apps.pcfone.io/api/random
+storage:
+  location: upload-dir
+service:
+  message: Hello, application
