@@ -36,3 +36,9 @@ http://localhost:8085/multi
 http://localhost:8085/bath
 
 http://localhost:8085/bath?name=JILL
+#transactions
+http://localhost:8085/book/all
+
+http://localhost:8085/book/big
+
+http://localhost:8085/book/null
