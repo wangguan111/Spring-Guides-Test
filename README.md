@@ -30,5 +30,9 @@ http://localhost:8085/neo4j
 http://localhost:9001/actuator/health
 # jms
 http://localhost:8085/jms
-# multimodule
+# multiModule
 http://localhost:8085/multi
+# bath
+http://localhost:8085/bath
+
+http://localhost:8085/bath?name=JILL
