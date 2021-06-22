@@ -46,3 +46,7 @@ http://localhost:8085/book/null
 http://localhost:8085/jpa/id
 
 http://localhost:8085/jpa/name
+# mongodb
+http://localhost:8085/mongodb/first
+
+http://localhost:8085/mongodb/last

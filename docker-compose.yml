@@ -21,3 +21,12 @@ services:
     container_name: ${NEO4J_NAME}
     environment:
       - NEO4J_AUTH=neo4j/secret
+  mongo:
+    image: ${MONGO_NAME}
+    ports:
+      - ${MONGO_PORT}:${MONGO_PORT}
+    container_name: ${MONGO_NAME}
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: 123456
+      MONGO_INITDB_DATABASE: test

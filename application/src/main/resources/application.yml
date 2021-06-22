@@ -1,21 +1,33 @@
+# port
 server:
   port: 8085
+#  log
 logging:
   config: classpath:logback.xml
+#  actuator
 management:
   server:
     port: 9001
     address: 127.0.0.1
+# spring
 spring:
   data:
     neo4j:
       password: secret
       username: neo4j
+    mongodb:
+      uri: mongodb://root:123456@localhost:27017/test?authSource=admin
   neo4j:
     uri: bolt://localhost:7687
+
+# consuming api
 consuming:
   url: https://quoters.apps.pcfone.io/api/random
+
+# upload file storage path
 storage:
   location: upload-dir
+
+# multi module
 service:
   message: Hello, application

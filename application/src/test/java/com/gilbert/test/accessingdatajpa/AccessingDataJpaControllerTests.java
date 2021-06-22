@@ -12,7 +12,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 @AutoConfigureMockMvc
 @SpringBootTest
-public class CustomerRepositoryTests {
+public class AccessingDataJpaControllerTests {
 
 	@Autowired
 	private MockMvc mockMvc;
