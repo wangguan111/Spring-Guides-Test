@@ -50,3 +50,5 @@ http://localhost:8085/jpa/name
 http://localhost:8085/mongodb/first
 
 http://localhost:8085/mongodb/last
+#  async
+http://localhost:8085/async
