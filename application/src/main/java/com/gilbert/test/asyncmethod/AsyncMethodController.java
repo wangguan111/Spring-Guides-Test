@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.Executor;
 
+/**
+ * @author gilbertwang
+ */
 @RestController
 @Slf4j
 public class AsyncMethodController {

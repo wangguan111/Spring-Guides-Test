@@ -54,3 +54,5 @@ http://localhost:8085/mongodb/last
 http://localhost:8085/async
 # stomp web socket
 http://localhost:8085/
+# caching
+http://localhost:8085/caching
