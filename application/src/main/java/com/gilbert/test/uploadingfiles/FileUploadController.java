@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 import com.gilbert.test.uploadingfiles.storage.StorageFileNotFoundException;
 import com.gilbert.test.uploadingfiles.storage.StorageService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
@@ -29,22 +30,25 @@ public class FileUploadController {
 	@Autowired
 	private StorageService storageService;
 
-	@GetMapping("/")
-	public String listUploadedFiles(Model model) throws IOException {
+	@Bean
+	public void init()
+	{
 		storageService.deleteAll();
 		storageService.init();
+	}
+
+	@GetMapping("/")
+	public String listUploadedFiles(Model model) throws IOException {
 		model.addAttribute("files", storageService.loadAll().map(
 				path -> MvcUriComponentsBuilder.fromMethodName(FileUploadController.class,
 						"serveFile", path.getFileName().toString()).build().toUri().toString())
 				.collect(Collectors.toList()));
-
 		return "uploadForm";
 	}
 
 	@GetMapping("/files/{filename:.+}")
 	@ResponseBody
 	public ResponseEntity<Resource> serveFile(@PathVariable String filename) {
-
 		Resource file = storageService.loadAsResource(filename);
 		return ResponseEntity.ok().header(HttpHeaders.CONTENT_DISPOSITION,
 				"attachment; filename=\"" + file.getFilename() + "\"").body(file);
@@ -53,11 +57,9 @@ public class FileUploadController {
 	@PostMapping("/")
 	public String handleFileUpload(@RequestParam("file") MultipartFile file,
 			RedirectAttributes redirectAttributes) {
-
 		storageService.store(file);
 		redirectAttributes.addFlashAttribute("message",
 				"You successfully uploaded " + file.getOriginalFilename() + "!");
-
 		return "redirect:/";
 	}
 
@@ -65,5 +67,4 @@ public class FileUploadController {
 	public ResponseEntity<?> handleStorageFileNotFound(StorageFileNotFoundException exc) {
 		return ResponseEntity.notFound().build();
 	}
-
 }

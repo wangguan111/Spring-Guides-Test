@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class WebLayerController {
 
-	@RequestMapping("/")
+	@RequestMapping("/web")
 	public @ResponseBody String greeting() {
 		return "Hello, World";
 	}
