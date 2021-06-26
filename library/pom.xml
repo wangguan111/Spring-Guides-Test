@@ -12,4 +12,8 @@
 
 	<artifactId>library</artifactId>
 
+	<build>
+		<finalName>library</finalName>
+	</build>
+
 </project>

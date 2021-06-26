@@ -1,5 +1,7 @@
-# deploy:
+# deploy docker in dev env:
 docker-compose up
+# deploy docker in jenkins:
+./docker/startup.sh
 
 # test url:
 # greeting
@@ -53,6 +55,6 @@ http://localhost:8085/mongodb/last
 #  async
 http://localhost:8085/async
 # stomp web socket
-http://localhost:8085/
+http://localhost:8086/
 # caching
 http://localhost:8085/caching

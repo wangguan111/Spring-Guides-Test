@@ -1,31 +1,46 @@
 #
 version: '3'
 services:
+  web:
+    build: .
+    image: ${MYAPP_NAME}
+    ports:
+      - ${APP_PORT}:${APP_PORT}
+      - ${STOMP_PORT}:${STOMP_PORT}
+    container_name: ${MYAPP_NAME}
+    volumes:
+    - ../${APP_JAR}/target/${APP_JAR}.jar:/tmp/${APP_JAR}.jar
+    - ../${STOMP_JAR}/target/${STOMP_JAR}.jar:/tmp/${STOMP_JAR}.jar
+    depends_on:
+      - redis
+      - rabbitmq
+      - neo4j
+      - mongo
   redis:
     image: ${REDIS_NAME}
     command: ${REDIS_COMMAND}
     ports:
       - ${REDIS_PORT}:${REDIS_PORT}
-    container_name: ${REDIS_NAME}_dev
+    container_name: ${REDIS_NAME}
   rabbitmq:
     image: ${RABBITMQ_NAME}
     ports:
       - ${RABBITMQ_AMQP_PORT}:${RABBITMQ_AMQP_PORT}
       - ${RABBITMQ_ADMIN_PORT}:${RABBITMQ_ADMIN_PORT}
-    container_name: ${RABBITMQ_NAME}_dev
+    container_name: ${RABBITMQ_NAME}
   neo4j:
     image: ${NEO4J_NAME}
     ports:
       - ${NEO4J_HTTP_PORT}:${NEO4J_HTTP_PORT}
       - ${NEO4J_BOLT_PORT}:${NEO4J_BOLT_PORT}
-    container_name: ${NEO4J_NAME}_dev
+    container_name: ${NEO4J_NAME}
     environment:
       - NEO4J_AUTH=neo4j/secret
   mongo:
     image: ${MONGO_NAME}
     ports:
       - ${MONGO_PORT}:${MONGO_PORT}
-    container_name: ${MONGO_NAME}_dev
+    container_name: ${MONGO_NAME}
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: 123456

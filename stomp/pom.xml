@@ -10,18 +10,10 @@
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 
-	<artifactId>application</artifactId>
-
-	<dependencies>
-		<dependency>
-			<groupId>com.gilbert.test</groupId>
-			<artifactId>library</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-	</dependencies>
+	<artifactId>stomp</artifactId>
 
 	<build>
-		<finalName>application</finalName>
+		<finalName>stomp</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

@@ -24,6 +24,7 @@
 	<modules>
     	<module>application</module>
     	<module>library</module>
+		<module>stomp</module>
   	</modules>
 
 	<dependencies>
