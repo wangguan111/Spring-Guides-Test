@@ -7,10 +7,12 @@ services:
     ports:
       - ${APP_PORT}:${APP_PORT}
       - ${STOMP_PORT}:${STOMP_PORT}
+      - ${CROSS_PORT}:${CROSS_PORT}
     container_name: ${MYAPP_NAME}
     volumes:
     - ../${APP_JAR}/target/${APP_JAR}.jar:/tmp/${APP_JAR}.jar
     - ../${STOMP_JAR}/target/${STOMP_JAR}.jar:/tmp/${STOMP_JAR}.jar
+    - ../${CROSS_JAR}/target/${CROSS_JAR}.jar:/tmp/${CROSS_JAR}.jar
     depends_on:
       - redis
       - rabbitmq

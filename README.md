@@ -58,3 +58,7 @@ http://localhost:8085/async
 http://localhost:8086/
 # caching
 http://localhost:8085/caching
+# cross
+http://localhost:8087/greeting
+
+http://localhost:8087/greeting-config

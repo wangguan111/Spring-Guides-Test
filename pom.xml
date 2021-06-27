@@ -25,6 +25,7 @@
     	<module>application</module>
     	<module>library</module>
 		<module>stomp</module>
+		<module>cross</module>
   	</modules>
 
 	<dependencies>
