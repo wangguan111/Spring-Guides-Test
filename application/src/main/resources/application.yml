@@ -1,14 +1,16 @@
 # port
 server:
   port: 8085
+
 #  log
 logging:
   config: classpath:logback.xml
+
 #  actuator
 management:
   server:
-    port: 9001
-    address: 127.0.0.1
+    port: 8081
+
 # spring
 spring:
   data:

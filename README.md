@@ -1,7 +1,8 @@
 # deploy docker in dev env:
 docker-compose up
 # deploy docker in jenkins:
-./docker/startup.sh
+cd docker
+./startup.sh
 
 # test url:
 # greeting
@@ -29,7 +30,7 @@ http://localhost:8085/rabbitmq
 # neo4j
 http://localhost:8085/neo4j
 # actuator
-http://localhost:9001/actuator/health
+http://localhost:8081/actuator/health
 # jms
 http://localhost:8085/jms
 # multiModule
@@ -62,3 +63,9 @@ http://localhost:8085/caching
 http://localhost:8087/greeting
 
 http://localhost:8087/greeting-config
+# configuration client
+http://localhost:8082/message
+# configuration service
+http://localhost:8084
+# refresh configuration client
+Post http://localhost:8083/actuator/refresh
