@@ -41,7 +41,7 @@ public class AccessingDataMongodbController {
 
 		// fetch all customers
 		for (Employee employee : repository.findAll()) {
-			log.info(employee.toString());
+			log.debug(employee.toString());
 		}
 	}
 }

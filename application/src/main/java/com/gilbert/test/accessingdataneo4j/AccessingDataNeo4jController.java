@@ -27,8 +27,8 @@ public class AccessingDataNeo4jController {
 		Person craig = new Person("Craig");
 
 		List<Person> team = Arrays.asList(greg, roy, craig);
-		log.info("Before linking up with Neo4j...");
-		team.stream().forEach(person -> log.info("\t" + person.toString()));
+		log.debug("Before linking up with Neo4j...");
+		team.stream().forEach(person -> log.debug("\t" + person.toString()));
 
 		personRepository.save(greg);
 		personRepository.save(roy);
@@ -45,13 +45,13 @@ public class AccessingDataNeo4jController {
 		personRepository.save(roy);
 
 		// We already know craig works with roy and greg
-		log.info("Lookup each person by name...");
-		team.stream().forEach(person -> log.info(
+		log.debug("Lookup each person by name...");
+		team.stream().forEach(person -> log.debug(
 				"\t" + personRepository.findByName(person.getName()).toString()));
 
 		List<Person> teammates = personRepository.findByTeammatesName(roy.getName());
-		log.info("The following have Greg as a teammate...");
-		teammates.stream().forEach(person -> log.info("\t" + person.getName()));
+		log.debug("The following have Greg as a teammate...");
+		teammates.stream().forEach(person -> log.debug("\t" + person.getName()));
 		return teammates.get(0);
 	}
 }

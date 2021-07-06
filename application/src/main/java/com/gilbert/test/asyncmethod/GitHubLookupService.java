@@ -19,7 +19,7 @@ public class GitHubLookupService {
 
 	@Async
 	public CompletableFuture<User> findUser(String user) throws InterruptedException {
-		log.info("Looking up " + user);
+		log.debug("Looking up " + user);
 		String url = String.format("https://api.github.com/users/%s", user);
 		User results = restTemplate.getForObject(url, User.class);
 		// Artificial delay of 1s for demonstration purposes

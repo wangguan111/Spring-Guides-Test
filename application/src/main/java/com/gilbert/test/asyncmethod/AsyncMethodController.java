@@ -44,10 +44,10 @@ public class AsyncMethodController {
 		CompletableFuture.allOf(page1,page2,page3).join();
 
 		// Print results, including elapsed time
-		log.info("Elapsed time: " + (System.currentTimeMillis() - start));
-		log.info("--> " + page1.get());
-		log.info("--> " + page2.get());
-		log.info("--> " + page3.get());
+		log.debug("Elapsed time: " + (System.currentTimeMillis() - start));
+		log.debug("--> " + page1.get());
+		log.debug("--> " + page2.get());
+		log.debug("--> " + page3.get());
 		return page1.get();
 	}
 }

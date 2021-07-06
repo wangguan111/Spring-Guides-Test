@@ -12,6 +12,6 @@ import org.springframework.stereotype.Component;
 public class EmailReceiver {
     @JmsListener(destination = "mailbox", containerFactory = "myFactory")
     public void receiveMessage(Email email) {
-        log.info("Received <" + email + ">");
+        log.debug("Received <" + email + ">");
     }
 }

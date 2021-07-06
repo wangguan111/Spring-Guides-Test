@@ -18,7 +18,7 @@ public class MessagingJmsController {
     @GetMapping("/jms")
     public Email jms() throws Exception {
         // Send a message with a POJO - the template reuse the message converter
-        log.info("Sending an email message.");
+        log.debug("Sending an email message.");
         jmsTemplate.convertAndSend("mailbox", new Email("xxx@126.com", "Hello"));
         return new Email("jms@126.com", "Hello");
     }

@@ -21,7 +21,7 @@ public class BookingController {
     {
         bookingService.deleteAll();
         bookingService.book("Alice", "Bob", "Carol");
-        log.info("Alice, Bob and Carol have been booked");
+        log.debug("Alice, Bob and Carol have been booked");
         return bookingService.findAllBookings().get(2);
     }
 
@@ -32,7 +32,7 @@ public class BookingController {
             bookingService.deleteAll();
             bookingService.book("Chris", "Samuel");
         } catch (RuntimeException e) {
-            log.info("The following exception is expect because 'Samuel' is too big for the DB");
+            log.debug("The following exception is expect because 'Samuel' is too big for the DB");
         }
         return bookingService.findAllBookings();
     }
@@ -44,7 +44,7 @@ public class BookingController {
             bookingService.deleteAll();
             bookingService.book("Buddy", null);
         } catch (RuntimeException e) {
-            log.info("The following exception is expect because null is not valid for the DB");
+            log.debug("The following exception is expect because null is not valid for the DB");
         }
         return bookingService.findAllBookings();
     }

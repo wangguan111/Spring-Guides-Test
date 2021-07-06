@@ -21,13 +21,13 @@ public class GreetingController {
 	@CrossOrigin(origins = "http://localhost:8087")
 	@GetMapping("/greeting")
 	public Greeting greeting(@RequestParam(required = false, defaultValue = "World") String name) {
-		log.info("==== get greeting ====");
+		log.debug("==== get greeting ====");
 		return new Greeting(counter.incrementAndGet(), String.format(TEMPLATE, name));
 	}
 
 	@GetMapping("/greeting-config")
 	public Greeting greetingWithJavaconfig(@RequestParam(required = false, defaultValue = "World") String name) {
-		log.info("==== in greeting ====");
+		log.debug("==== in greeting ====");
 		return new Greeting(counter.incrementAndGet(), String.format(TEMPLATE, name));
 	}
 

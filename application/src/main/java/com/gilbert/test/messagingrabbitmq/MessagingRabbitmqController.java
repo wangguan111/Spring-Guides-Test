@@ -24,7 +24,7 @@ public class MessagingRabbitmqController {
 
     @GetMapping("/rabbitmq")
     public String rabbitmq() throws Exception {
-        log.info("Sending message...");
+        log.debug("Sending message...");
         rabbitTemplate.convertAndSend(MessagingRabbitmq.TOPIC_EXCHANGE_NAME, ROUTING_KEY, MESSAGE);
         messageListener.getLatch().await(10000, TimeUnit.MILLISECONDS);
         return MESSAGE;

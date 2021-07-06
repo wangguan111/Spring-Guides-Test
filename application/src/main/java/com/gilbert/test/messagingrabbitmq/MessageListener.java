@@ -14,7 +14,7 @@ public class MessageListener {
 	private CountDownLatch latch = new CountDownLatch(1);
 
 	public void receiveMessage(String message) {
-		log.info("Received <" + message + ">");
+		log.debug("Received <" + message + ">");
 		latch.countDown();
 	}
 

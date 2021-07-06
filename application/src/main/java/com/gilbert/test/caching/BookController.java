@@ -17,20 +17,20 @@ public class BookController {
 
 	@GetMapping("/caching")
 	public Book book() throws Exception {
-		log.info(".... Fetching books");
+		log.debug(".... Fetching books");
 		long start = System.currentTimeMillis();
 		String[] arr = {"isbn-1234","isbn-4567","isbn-1234","isbn-4567"};
 		for(String str: arr)
 		{
 			Book b = get(str);
 		}
-		log.info("Elapsed time: " + (System.currentTimeMillis() - start));
+		log.debug("Elapsed time: " + (System.currentTimeMillis() - start));
 		return get(arr[0]);
 	}
 
 	private Book get(String book) throws Exception{
 		Book b = bookRepository.getByIsbn(book);
-		log.info(b.toString());
+		log.debug(b.toString());
 		return b;
 	}
 }

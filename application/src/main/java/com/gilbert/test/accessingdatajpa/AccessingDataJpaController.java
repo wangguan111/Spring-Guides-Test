@@ -31,9 +31,9 @@ public class AccessingDataJpaController {
 		repository.save(new Customer("Michelle", "Dessler"));
 
 		// fetch all customers
-		log.info("Customers found with findAll():");
+		log.debug("Customers found with findAll():");
 		for (Customer customer: repository.findAll()) {
-			log.info(customer.toString());
+			log.debug(customer.toString());
 		}
 	}
 
