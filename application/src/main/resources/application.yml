@@ -1,6 +1,6 @@
 # port
 server:
-  port: 8085
+  port: 8081
 
 #  log
 logging:
@@ -9,10 +9,12 @@ logging:
 #  actuator
 management:
   server:
-    port: 8081
+    port: 9081
 
 # spring
 spring:
+  application:
+    name: spring-application
   data:
     neo4j:
       password: secret
@@ -33,3 +35,17 @@ storage:
 # multi module
 service:
   message: Hello, application
+
+# eureka
+eureka:
+  instance:
+    hostname: eureka-consume
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8086/eureka
+
+# eureka provider
+provider:
+  client:
+    name: eureka-client
+    url: service

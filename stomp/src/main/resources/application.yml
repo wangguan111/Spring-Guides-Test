@@ -1,2 +1,7 @@
 server:
-  port: 8086
+  port: 8082
+
+#  actuator
+management:
+  server:
+    port: 9082

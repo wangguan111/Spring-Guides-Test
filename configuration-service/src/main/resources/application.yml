@@ -1,5 +1,11 @@
 server:
   port: 8084
+
+#  actuator
+management:
+  server:
+    port: 9084
+
 spring:
   profiles:
     active: native

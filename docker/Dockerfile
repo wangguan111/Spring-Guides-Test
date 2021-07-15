@@ -7,4 +7,6 @@ CMD java -jar /tmp/stomp.jar \
     & java -jar /tmp/cross.jar \
     & java -jar /tmp/configuration-service.jar \
     & java -jar /tmp/configuration-client.jar \
+    & java -jar /tmp/eureka-service.jar \
+    & java -jar /tmp/eureka-client.jar \
     & java -jar /tmp/application.jar

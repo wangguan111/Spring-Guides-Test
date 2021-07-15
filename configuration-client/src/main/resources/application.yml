@@ -9,6 +9,6 @@ management:
       exposure:
         include: '*'
   server:
-    port: 8083
+    port: 9085
 server:
-  port: 8082
+  port: 8085
