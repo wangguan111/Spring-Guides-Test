@@ -1,0 +1,25 @@
+# spring
+spring:
+  application:
+    name: spring-database
+  data:
+    neo4j:
+      password: secret
+      username: neo4j
+    mongodb:
+      uri: mongodb://root:123456@localhost:27017/test?authSource=admin
+  neo4j:
+    uri: bolt://localhost:7687
+
+# port
+server:
+  port: 8082
+
+#  actuator
+management:
+  server:
+    port: 9082
+
+#  log
+logging:
+  config: classpath:logback.xml

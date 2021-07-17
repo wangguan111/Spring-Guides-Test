@@ -1,0 +1,17 @@
+# spring
+spring:
+  application:
+    name: spring-message
+
+# port
+server:
+  port: 8083
+
+#  actuator
+management:
+  server:
+    port: 9083
+
+#  log
+logging:
+  config: classpath:logback.xml

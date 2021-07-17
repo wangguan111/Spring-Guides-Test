@@ -1,12 +1,7 @@
-server:
-  port: 8084
-
-#  actuator
-management:
-  server:
-    port: 9084
-
+# spring
 spring:
+  application:
+    name: config-service
   profiles:
     active: native
   cloud:
@@ -14,3 +9,12 @@ spring:
       server:
         native:
           search-locations: classpath:config
+
+# port
+server:
+  port: 8084
+
+#  actuator
+management:
+  server:
+    port: 9086

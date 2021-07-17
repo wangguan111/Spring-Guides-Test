@@ -1,10 +1,13 @@
+# spring
 spring:
   application:
     name: eureka-server
 
+# port
 server:
-  port: 8086
+  port: 8085
 
+#eureka
 eureka:
   instance:
     hostname: eureka-server
@@ -12,7 +15,7 @@ eureka:
     registerWithEureka: false #  实例是否在eureka服务器上注册自己的信息以供其他服务发现
     fetchRegistry: false # 此客户端是否获取eureka服务器注册表上的注册信息
     serviceUrl:
-      defaultZone: http://localhost:8086/eureka
+      defaultZone: http://localhost:8085/eureka
   server:
     enableSelfPreservation: false # 自我保护机制关闭
 #    evictionIntervalTimerInMs: 4000 #  过期实例应该启动并运行的时间间隔

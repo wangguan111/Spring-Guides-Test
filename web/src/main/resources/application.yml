@@ -1,0 +1,29 @@
+# spring
+spring:
+  application:
+    name: spring-application
+
+# port
+server:
+  port: 8081
+
+#  actuator
+management:
+  server:
+    port: 9081
+
+# consuming api
+consuming:
+  url: https://quoters.apps.pcfone.io/api/random
+
+# upload file storage path
+storage:
+  location: upload-dir
+
+# multi module
+service:
+  message: Hello, application
+
+#  log
+logging:
+  config: classpath:logback.xml

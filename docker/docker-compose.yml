@@ -6,21 +6,23 @@ services:
     image: ${MYAPP_NAME}
     ports:
       - ${APP_PORT}:${APP_PORT}
-      - ${STOMP_PORT}:${STOMP_PORT}
-      - ${CROSS_PORT}:${CROSS_PORT}
+      - ${APP_ACT_PORT}:${APP_ACT_PORT}
+      - ${DATA_BASE_PORT}:${DATA_BASE_PORT}
+      - ${MESSAGE_PORT}:${MESSAGE_PORT}
       - ${CONFIG_SERVICE_PORT}:${CONFIG_SERVICE_PORT}
-      - ${CONFIG_CLIENT_PORT}:${CONFIG_CLIENT_PORT}
       - ${EUREKA_SERVICE_PORT}:${EUREKA_SERVICE_PORT}
       - ${EUREKA_CLIENT_PORT}:${EUREKA_CLIENT_PORT}
+      - ${CLOUD_PORT}:${CLOUD_PORT}
+      - ${CLOUD_ACT_PORT}:${CLOUD_ACT_PORT}
     container_name: ${MYAPP_NAME}
     volumes:
     - ../${APP_JAR}/target/${APP_JAR}.jar:/tmp/${APP_JAR}.jar
-    - ../${STOMP_JAR}/target/${STOMP_JAR}.jar:/tmp/${STOMP_JAR}.jar
-    - ../${CROSS_JAR}/target/${CROSS_JAR}.jar:/tmp/${CROSS_JAR}.jar
+    - ../${DATA_BASE_JAR}/target/${DATA_BASE_JAR}.jar:/tmp/${DATA_BASE_JAR}.jar
+    - ../${MESSAGE_JAR}/target/${MESSAGE_JAR}.jar:/tmp/${MESSAGE_JAR}.jar
     - ../${CONFIG_SERVICE_JAR}/target/${CONFIG_SERVICE_JAR}.jar:/tmp/${CONFIG_SERVICE_JAR}.jar
-    - ../${CONFIG_CLIENT_JAR}/target/${CONFIG_CLIENT_JAR}.jar:/tmp/${CONFIG_CLIENT_JAR}.jar
     - ../${EUREKA_SERVICE_JAR}/target/${EUREKA_SERVICE_JAR}.jar:/tmp/${EUREKA_SERVICE_JAR}.jar
     - ../${EUREKA_CLIENT_JAR}/target/${EUREKA_CLIENT_JAR}.jar:/tmp/${EUREKA_CLIENT_JAR}.jar
+    - ../${CLOUD_JAR}/target/${CLOUD_JAR}.jar:/tmp/${CLOUD_JAR}.jar
     depends_on:
       - redis
       - rabbitmq
