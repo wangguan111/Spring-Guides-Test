@@ -3,6 +3,20 @@ spring:
   application:
     name: spring-message
 
+# redis
+  redis:
+    database: 0 # 表示使用redis通统一数据库
+    host: redis
+    port: 6379
+
+# rabbitmq
+  rabbitmq:
+    host: rabbitmq
+    port: 5672
+    username: guest
+    password: guest
+
+
 # port
 server:
   port: 8083

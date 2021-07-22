@@ -1,12 +1,17 @@
-# deploy docker in dev env:
+# deploy depends_on services in docker for dev debug env:
 docker-compose up
-# deploy docker in jenkins:
+# deploy all services in docker:
 cd docker
 
-./startup.sh
+docker-compose up
+# deploy xx service in docker:
+cd xx
+
+docker-compose up
+
 
 # test url:
-#-----------web------------#
+# #-----------web------------#
 # greeting
 http://localhost:8081/greeting
 # consuming
@@ -25,17 +30,17 @@ http://localhost:8081/async
 http://localhost:8081/caching
 
 
-#-----------DataBase------------#
+# #-----------DataBase------------#
 # jdbc
-http://localhost:8082/dataAccess/string
+http://localhost:8082/jdbc/string
 
-http://localhost:8082/dataAccess/string1
+http://localhost:8082/jdbc/string1
 
-http://localhost:8082/dataAccess/object
+http://localhost:8082/jdbc/object
 
-http://localhost:8082/dataAccess/list
+http://localhost:8082/jdbc/list
 
-http://localhost:8082/dataAccess/count
+http://localhost:8082/jdbc/count
 # neo4j
 http://localhost:8082/neo4j
 # transactions
@@ -62,7 +67,7 @@ http://localhost:8082/greeting
 http://localhost:8082/greeting-config
 
 
-#-----------Message------------#
+# #-----------Message------------#
 # redis
 http://localhost:8083/redis
 # rabbitmq
@@ -73,17 +78,17 @@ http://localhost:8083/jms
 http://localhost:8083/
 
 
-#-----------configuration-service------------#
+# #-----------configuration-service------------#
 # configuration service
 http://localhost:8084
 # get
 http://localhost:8084/config/spring-cloud.properties
-#-----------eureka-service------------#
+# #-----------eureka-service------------#
 # eureka service
 http://localhost:8085
 
 
-#-----------eureka-client------------#
+# #-----------eureka-client------------#
 # eureka client provider
 http://localhost:8086/service
 
@@ -97,3 +102,11 @@ http://localhost:8087/rest
 http://localhost:8087/message
 # refresh configuration client
 Post http://localhost:9087/actuator/refresh
+
+# #-----------sql------------#
+# mysql
+Post http://localhost:8088/mysql/add
+
+Post http://localhost:8088/mysql/add?name=name&email=mail
+
+http://localhost:8088/mysql/all

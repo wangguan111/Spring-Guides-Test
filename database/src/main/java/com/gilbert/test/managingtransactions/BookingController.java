@@ -3,6 +3,7 @@ package com.gilbert.test.managingtransactions;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
@@ -10,13 +11,14 @@ import java.util.List;
  * @author gilbertwang
  */
 @RestController
+@RequestMapping(path="/book")
 @Slf4j
 public class BookingController {
 
     @Autowired
     private BookingService bookingService;
 
-    @GetMapping("/book/all")
+    @GetMapping("/all")
     public String bookAll()
     {
         bookingService.deleteAll();
@@ -25,7 +27,7 @@ public class BookingController {
         return bookingService.findAllBookings().get(2);
     }
 
-    @GetMapping("/book/big")
+    @GetMapping("/big")
     public List<String> bookBig()
     {
         try {
@@ -37,7 +39,7 @@ public class BookingController {
         return bookingService.findAllBookings();
     }
 
-    @GetMapping("/book/null")
+    @GetMapping("/null")
     public List<String> bookNull()
     {
         try {

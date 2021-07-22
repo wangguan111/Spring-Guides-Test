@@ -12,7 +12,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 @SpringBootTest
 @AutoConfigureMockMvc
-class DataAccessControllerTest {
+class AccessDataJdbcControllerTest {
 
 	@Autowired
 	private MockMvc mockMvc;
@@ -20,7 +20,7 @@ class DataAccessControllerTest {
 	@Test
 	public void testQueryForObjectNoParameter() throws Exception {
 
-		this.mockMvc.perform(get("/dataAccess/string")).andDo(print()).
+		this.mockMvc.perform(get("/jdbc/string")).andDo(print()).
 				andExpect(status().isOk())
 				.andExpect(jsonPath("$").value("Josh"));
 	}
@@ -28,7 +28,7 @@ class DataAccessControllerTest {
 	@Test
 	public void testQueryForObjectParameter() throws Exception {
 
-		this.mockMvc.perform(get("/dataAccess/string1")).andDo(print()).
+		this.mockMvc.perform(get("/jdbc/string1")).andDo(print()).
 				andExpect(status().isOk())
 				.andExpect(jsonPath("$").value("Josh"));
 	}
@@ -36,7 +36,7 @@ class DataAccessControllerTest {
 	@Test
 	public void testForObject() throws Exception {
 
-		this.mockMvc.perform(get("/dataAccess/object")).andDo(print()).
+		this.mockMvc.perform(get("/jdbc/object")).andDo(print()).
 				andExpect(status().isOk())
 				.andExpect(jsonPath("$.id").value(3))
 				.andExpect(jsonPath("$.firstName").value("Josh"))
@@ -46,7 +46,7 @@ class DataAccessControllerTest {
 	@Test
 	public void testForList() throws Exception {
 
-		this.mockMvc.perform(get("/dataAccess/list")).andDo(print()).
+		this.mockMvc.perform(get("/jdbc/list")).andDo(print()).
 				andExpect(status().isOk())
 				.andExpect(jsonPath("$..id").value(3))
 				.andExpect(jsonPath("$..firstName").value("Josh"))
@@ -56,7 +56,7 @@ class DataAccessControllerTest {
 	@Test
 	public void testForCount() throws Exception {
 
-		this.mockMvc.perform(get("/dataAccess/count")).andDo(print()).
+		this.mockMvc.perform(get("/jdbc/count")).andDo(print()).
 				andExpect(status().isOk())
 				.andExpect(jsonPath("$").value(4));
 	}

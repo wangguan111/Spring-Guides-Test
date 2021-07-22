@@ -30,3 +30,13 @@ services:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: 123456
       MONGO_INITDB_DATABASE: test
+  mysql:
+    image: ${MYSQL_NAME}
+    ports:
+      - ${MYSQL_PORT}:${MYSQL_PORT}
+    container_name: ${MYSQL_NAME}_dev
+    environment:
+      - MYSQL_USER=mysql
+      - MYSQL_PASSWORD=ThePassword
+      - MYSQL_DATABASE=db_mysql
+      - MYSQL_ROOT_PASSWORD=root

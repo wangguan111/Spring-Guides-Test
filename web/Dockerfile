@@ -1,8 +1,2 @@
 FROM openjdk:8-jdk-alpine
-#VOLUME /tmp
-#ARG JAR_FILE=target/*.jar
-#ADD test-0.0.1-SNAPSHOT.jar test.jar
-# ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","tmp/test.jar"]
-CMD java -jar /tmp/web.jar \
-    & java -jar /tmp/database.jar \
-    & java -jar /tmp/message.jar
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","tmp/web.jar"]

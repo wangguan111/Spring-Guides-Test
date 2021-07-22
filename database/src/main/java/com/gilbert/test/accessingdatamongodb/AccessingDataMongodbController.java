@@ -3,6 +3,7 @@ package com.gilbert.test.accessingdatamongodb;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -10,20 +11,21 @@ import org.springframework.web.bind.annotation.RestController;
  * @author gilbertwang
  */
 @RestController
+@RequestMapping(path="/mongodb")
 @Slf4j
 public class AccessingDataMongodbController {
 
 	@Autowired
 	private EmployeeRepository repository;
 
-	@GetMapping("/mongodb/first")
+	@GetMapping("/first")
 	public Employee findByFirstName(
 			@RequestParam(value="name", required=false, defaultValue="Bob")String name) {
 		initData();
 		return repository.findByFirstName(name).get(0);
 	}
 
-	@GetMapping("/mongodb/last")
+	@GetMapping("/last")
 	public Employee findByLastName(
 			@RequestParam(value="name", required=false, defaultValue="Smith")String name) {
 		initData();

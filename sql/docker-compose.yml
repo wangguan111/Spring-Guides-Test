@@ -1,0 +1,23 @@
+#
+version: '3'
+services:
+  sql:
+    build: ../${SQL_JAR}
+    image: ${SQL_IMAGE}
+    ports:
+      - ${SQL_PORT}:${SQL_PORT}
+    container_name: ${SQL_IMAGE}
+    volumes:
+    - ../${SQL_JAR}/target/${SQL_JAR}.jar:/tmp/${SQL_JAR}.jar
+    depends_on:
+      - mysql
+  mysql:
+    image: ${MYSQL_NAME}
+    ports:
+      - ${MYSQL_PORT}:${MYSQL_PORT}
+    container_name: ${MYSQL_NAME}
+    environment:
+      - MYSQL_USER=mysql
+      - MYSQL_PASSWORD=ThePassword
+      - MYSQL_DATABASE=db_mysql
+      - MYSQL_ROOT_PASSWORD=root

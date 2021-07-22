@@ -4,12 +4,11 @@ spring:
     name: spring-database
   data:
     neo4j:
+      uri: bolt://neo4j:7687
       password: secret
       username: neo4j
     mongodb:
       uri: mongodb://root:123456@localhost:27017/test?authSource=admin
-  neo4j:
-    uri: bolt://localhost:7687
 
 # port
 server:
