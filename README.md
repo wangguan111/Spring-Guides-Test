@@ -12,12 +12,12 @@ docker-compose up
 
 
 # 2:
-# docker
+# docker mode
 # default profile:
 
-# debug
+# debug mode
 # dev profile:
-# database, message and sql
+# database, message, sql and cloud
 --spring.profiles.active=dev
 
 

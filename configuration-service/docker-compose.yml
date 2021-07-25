@@ -1,0 +1,11 @@
+#
+version: '3'
+services:
+  config:
+    build: ../${CONFIG_SERVICE_JAR}
+    image: ${CONFIG_IMAGE}
+    ports:
+      - ${CONFIG_SERVICE_PORT}:${CONFIG_SERVICE_PORT}
+    container_name: ${CONFIG_IMAGE}
+    volumes:
+      - ../${CONFIG_SERVICE_JAR}/target/${CONFIG_SERVICE_JAR}.jar:/tmp/${CONFIG_SERVICE_JAR}.jar

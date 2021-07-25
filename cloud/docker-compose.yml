@@ -2,17 +2,25 @@
 version: '3'
 services:
   cloud:
-    build: .
+    build: ../${CLOUD_JAR}
     image: ${CLOUD_IMAGE}
     ports:
-      - ${CONFIG_SERVICE_PORT}:${CONFIG_SERVICE_PORT}
       - ${EUREKA_SERVICE_PORT}:${EUREKA_SERVICE_PORT}
       - ${EUREKA_CLIENT_PORT}:${EUREKA_CLIENT_PORT}
       - ${CLOUD_PORT}:${CLOUD_PORT}
       - ${CLOUD_ACT_PORT}:${CLOUD_ACT_PORT}
     container_name: ${CLOUD_IMAGE}
     volumes:
-      - ../${CONFIG_SERVICE_JAR}/target/${CONFIG_SERVICE_JAR}.jar:/tmp/${CONFIG_SERVICE_JAR}.jar
       - ../${EUREKA_SERVICE_JAR}/target/${EUREKA_SERVICE_JAR}.jar:/tmp/${EUREKA_SERVICE_JAR}.jar
       - ../${EUREKA_CLIENT_JAR}/target/${EUREKA_CLIENT_JAR}.jar:/tmp/${EUREKA_CLIENT_JAR}.jar
       - ../${CLOUD_JAR}/target/${CLOUD_JAR}.jar:/tmp/${CLOUD_JAR}.jar
+    depends_on:
+      - config
+  config:
+    build: ../${CONFIG_SERVICE_JAR}
+    image: ${CONFIG_IMAGE}
+    ports:
+      - ${CONFIG_SERVICE_PORT}:${CONFIG_SERVICE_PORT}
+    container_name: ${CONFIG_IMAGE}
+    volumes:
+      - ../${CONFIG_SERVICE_JAR}/target/${CONFIG_SERVICE_JAR}.jar:/tmp/${CONFIG_SERVICE_JAR}.jar
