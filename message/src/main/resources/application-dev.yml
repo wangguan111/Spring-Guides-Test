@@ -1,0 +1,31 @@
+# spring
+spring:
+  application:
+    name: spring-message
+
+# redis
+  redis:
+    database: 0 # 表示使用redis通统一数据库
+    host: localhost
+    port: 6379
+
+# rabbitmq
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+
+# port
+server:
+  port: 8083
+
+#  actuator
+management:
+  server:
+    port: 9083
+
+#  log
+logging:
+  config: classpath:logback.xml

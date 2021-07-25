@@ -1,3 +1,4 @@
+# 1:
 # deploy depends_on services in docker for dev debug env:
 docker-compose up
 # deploy all services in docker:
@@ -10,6 +11,17 @@ cd xx
 docker-compose up
 
 
+# 2:
+# docker
+# default profile:
+
+# debug
+# dev profile:
+# database, message and sql
+--spring.profiles.active=dev
+
+
+# 3:
 # test url:
 # #-----------web------------#
 # greeting

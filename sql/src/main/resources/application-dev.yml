@@ -1,0 +1,30 @@
+# spring
+spring:
+  application:
+    name: spring-sql
+
+# mysql
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+#    database-platform: org.hibernate.dialect.MySQL5Dialect
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/db_mysql
+    username: mysql
+    password: ThePassword
+    driver-class-name: com.mysql.jdbc.Driver
+
+# port
+server:
+  port: 8088
+
+#  actuator
+management:
+  server:
+    port: 9088
+
+#  log
+logging:
+  config: classpath:logback.xml
