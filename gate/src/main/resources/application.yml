@@ -1,0 +1,17 @@
+# spring
+spring:
+  application:
+    name: spring-gatte
+
+# port
+server:
+  port: 8089
+
+#  actuator
+management:
+  server:
+    port: 9089
+
+#  log
+logging:
+  config: classpath:logback.xml

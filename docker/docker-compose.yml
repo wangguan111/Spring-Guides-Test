@@ -65,6 +65,14 @@ services:
       - ../${SQL_JAR}/target/${SQL_JAR}.jar:/tmp/${SQL_JAR}.jar
     depends_on:
       - mysql
+  gate:
+    build: ../${GATE_JAR}
+    image: ${GATE_IMAGE}
+    ports:
+      - ${GATE_PORT}:${GATE_PORT}
+    container_name: ${GATE_IMAGE}
+    volumes:
+      - ../${GATE_JAR}/target/${GATE_JAR}.jar:/tmp/${GATE_JAR}.jar
   redis:
     image: ${REDIS_NAME}
     command: ${REDIS_COMMAND}

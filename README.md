@@ -115,6 +115,7 @@ http://localhost:8087/message
 # refresh configuration client
 Post http://localhost:9087/actuator/refresh
 
+
 # #-----------sql------------#
 # mysql
 Post http://localhost:8088/mysql/add
@@ -122,3 +123,11 @@ Post http://localhost:8088/mysql/add
 Post http://localhost:8088/mysql/add?name=name&email=mail
 
 http://localhost:8088/mysql/all
+
+
+# #-----------gate------------#
+# gate
+http://localhost:8089/get
+
+http://localhost:8089/delay/3
+--header 'Host: www.hystrix.com'
