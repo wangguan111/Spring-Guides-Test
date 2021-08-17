@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>com.gilbert.test</groupId>
 		<artifactId>test</artifactId>
-		<version>${project.version}</version>
+		<version>${revision}</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 
@@ -58,12 +58,6 @@
 
 	<build>
 		<finalName>database</finalName>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
 	</build>
 
 </project>

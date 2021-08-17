@@ -12,14 +12,20 @@
 
 	<groupId>com.gilbert.test</groupId>
 	<artifactId>test</artifactId>
-	<version>${project.version}</version>
+	<version>${revision}</version>
 	<packaging>pom</packaging>
 	<description>test project for Spring Boot</description>
 
 	<properties>
+		<!-- Project revision -->
+		<revision>0.0.1</revision>
+
 		<java.version>1.8</java.version>
-		<project.version>0.0.1</project.version>
+
 		<spring-cloud.version>2020.0.0</spring-cloud.version>
+
+<!--		<maven.test.skip>true</maven.test.skip>-->
+<!--		<skipTests>true</skipTests>-->
 	</properties>
 
 	<modules>
@@ -73,5 +79,14 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
 
 </project>
